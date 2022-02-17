@@ -1,0 +1,9 @@
+devdoc.md
+test-file
+
+/build/*
+/metadata/*
+/change/*
+
+/test
+/config
