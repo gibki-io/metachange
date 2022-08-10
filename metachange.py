@@ -6,12 +6,14 @@ for path in Path("metadata").iterdir():
         address = Path(path).stem
 
         current_file = open(path, "r")
-        new_file = open("build/"+name+".json", "w")
+        new_file = open("build/"+address+".json", "w")
         metadata = json.load(current_file)
 
-        # Make changes to metadata
-        # e.g. Change Creators
-        # j["creators"] = [{"address": "FcCp7iSjaoY2R7tMtp4Ww8m4kWdrDx9FPWXGPfvQNEdP","verified": false,"share": 100}]
+        metadata["creators"] = [
+            {"address":"66CArwTsEvedcGYgV9vuYF92iRJisHm4WMfWxJviGasm","share":0,"verified":True},
+            {"address":"BCJqqXatLeCKZtViBH5iFSQVMx6PnJeFQbSyQypwWuZM","share":81,"verified":False},
+            {"address": "Uztzyg11P1wGBQfwbQTRAGB1zC2iV6vXthu3BRVjXGe", "share": 19, "verified": False},
+        ]
 
         wrapper = {"mint_account": "", "nft_data": {}}
 
@@ -21,4 +23,4 @@ for path in Path("metadata").iterdir():
         json.dump(wrapper, new_file, indent=4)
         new_file.close()
         current_file.close()
-        print(name + " Success")
+        print(address + " Success")
